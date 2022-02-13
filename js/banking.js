@@ -8,14 +8,14 @@ const second = doubleIt(7);
  */
 
 
-function getInputValue() {
-    const depositInput = document.getElementById('deposit-input');  //input
-    const depositAmountText = depositInput.value;       //input value
-    const depositAmount = parseFloat(depositAmountText);    // convate number
+function getInputValue(inputId) {
+    const inputField = document.getElementById(inputId);  //input
+    const inputAmountText = inputField.value;       //input value
+    const amountValue = parseFloat(inputAmountText);    // convate number
 
     //clear input field
-    depositInput.value = '';
-    return depositAmount;
+    inputField.value = '';
+    return amountValue;
 }
 
 
@@ -31,9 +31,9 @@ document.getElementById('deposit-button').addEventListener('click', function () 
       // convate number-----------------
       const depositAmount = parseFloat(depositAmountText); */
     //---------------------------------
-    const depositAmount = getInputValue();
+    const depositAmount = getInputValue('deposit-input');
 
-    // 3. get current deposit
+    // 3. get and update deposit total
     const depositTotal = document.getElementById('deposit-total');
     //get deposit total inner text
     const depositTotalText = depositTotal.innerText
@@ -61,12 +61,16 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
 //1. handle / get  withdraw button
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    //get withdraw input------------------------------
-    const withdrawInput = document.getElementById('withdraw-input');
-    // get input value
-    const withdrawAmountText = withdrawInput.value;
-    // input convate number
-    const withdrawAmount = parseFloat(withdrawAmountText);
+    /*     //get withdraw input------------------------------
+        const withdrawInput = document.getElementById('withdraw-input');
+        // get input value---
+        const withdrawAmountText = withdrawInput.value;
+        // input convate number----------------
+        const withdrawAmount = parseFloat(withdrawAmountText); */
+
+    const withdrawAmount = getInputValue('withdraw-input');
+
+    // 3. get and update deposit total
 
     //update withdraw total-------------------------------
     const withdrawTotal = document.getElementById('withdraw-total');
@@ -84,7 +88,6 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
 
     balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
 
-    //  clear withdraw input field
-    withdrawInput.value = '';
+
 
 });
