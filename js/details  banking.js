@@ -1,37 +1,12 @@
-/* 
-function doubleIt(num) {
-    const result = num * 2;
-    return result;
-}
-const first = doubleIt(5);
-const second = doubleIt(7);
- */
-
-
-function getInputValue() {
-    const depositInput = document.getElementById('deposit-input');  //input
-    const depositAmountText = depositInput.value;       //input value
-    const depositAmount = parseFloat(depositAmountText);    // convate number
-
-    //clear input field
-    depositInput.value = '';
-    return depositAmount;
-}
-
-
-
-
-
 //1. handle / get  deposit button
 document.getElementById('deposit-button').addEventListener('click', function () {
-    //button ready--------------
-    // 2. get input value-------------
-    /*   const depositInput = document.getElementById('deposit-input');  //input
-      const depositAmountText = depositInput.value;       //input value
-      // convate number-----------------
-      const depositAmount = parseFloat(depositAmountText); */
+    //button ready
+    // 2. get input value
+    const depositInput = document.getElementById('deposit-input');  //input
+    const depositAmountText = depositInput.value;       //input value
+    // convate number
+    const depositAmount = parseFloat(depositAmountText);
     //---------------------------------
-    const depositAmount = getInputValue();
 
     // 3. get current deposit
     const depositTotal = document.getElementById('deposit-total');
@@ -56,7 +31,8 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     balanceTotal.innerText = previousBalanceTotal + depositAmount;
     //-------------------------------------
 
-
+    //clear input field
+    depositInput.value = '';
 });
 
 //1. handle / get  withdraw button
